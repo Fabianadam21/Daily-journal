@@ -102,7 +102,7 @@ if (!isset($_SESSION['username'])) {
         ><i class="bi bi-whatsapp h2 p-2 text-dark"></i
         ></a>
     </div>
-    <div>Fabian Adam Maheswara&copy; 2023</div>
+    <div>Fabian Adam Maheswara&copy; 2024</div>
     </footer>
     <!-- footer end -->
     <script

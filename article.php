@@ -4,7 +4,7 @@
     <i class="bi bi-plus-lg"></i> Tambah Article
 </button>
     <div class="row">
-        <div class="table-responsive" id="article-data">
+        <div class="table-responsive" id="article_data">
      </div>
          
 <!-- Awal Modal Tambah-->
