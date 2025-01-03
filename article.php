@@ -48,7 +48,7 @@ $(document).ready(function(){ load_data();
             url : "article_data.php",
             method : "POST",
             data : {
-					            hlm: hlm
+					            hlm:hlm
 				           },
             success : function(data){
                     $('#article_data').html(data);
