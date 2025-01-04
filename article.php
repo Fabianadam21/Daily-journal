@@ -4,7 +4,7 @@
         <i class="bi bi-plus-lg"></i> Tambah Article
     </button>
     <div class="row">
-        <div class="table-responsive">
+        <div class="table-responsive" id="article_data">
             <table class="table table-hover">
                 <thead class="table-dark">
                     <tr>
@@ -161,7 +161,28 @@
 <!-- Akhir Modal Tambah-->
     </div>
 </div>
+<script>
+$(document).ready(function(){
+    load_data();
+    function load_data(hlm){
+        $.ajax({
+            url : "article_data.php",
+            method : "POST",
+            data : {
+					            hlm: hlm
+				           },
+            success : function(data){
+                    $('#article_data').html(data);
+            }
+        })
+    } 
+    $(document).on('click', '.halaman', function(){
+    var hlm = $(this).attr("id");
+    load_data(hlm);
+});
+});
 
+</script>
 <?php
 include "upload_foto.php";
 

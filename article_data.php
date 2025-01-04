@@ -126,10 +126,7 @@
                     ?>
                 </tbody>
             </table>
-        </div>
-    </div>
-</div>
-<?php 
+            <?php 
 $sql1 = "SELECT * FROM article";
 $hasil1 = $conn->query($sql1); 
 $total_records = $hasil1->num_rows;
@@ -142,7 +139,7 @@ $total_records = $hasil1->num_rows;
         $jumlah_number = 1; //jumlah halaman ke kanan dan kiri dari halaman yang aktif
         $start_number = ($hlm > $jumlah_number)? $hlm - $jumlah_number : 1;
         $end_number = ($hlm < ($jumlah_page - $jumlah_number))? $hlm + $jumlah_number : $jumlah_page;
-
+                    
         if($hlm == 1){
             echo '<li class="page-item disabled"><a class="page-link" href="#">First</a></li>';
             echo '<li class="page-item disabled"><a class="page-link" href="#"><span aria-hidden="true">&laquo;</span></a></li>';
@@ -168,3 +165,6 @@ $total_records = $hasil1->num_rows;
     ?>
     </ul>
 </nav>
+        </div>
+    </div>
+</div>
