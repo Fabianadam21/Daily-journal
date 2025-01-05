@@ -45,7 +45,7 @@
                             </td>
                             <td>            
     <a href="#" title="edit" class="badge rounded-pill text-bg-success" data-bs-toggle="modal" data-bs-target="#modalEdit<?= $row["id"] ?>"><i class="bi bi-pencil"></i></a>
-    <a href="#" title="delete" class="badge rounded-pill text-bg-danger" data-bs-toggle="modal" data-bs-target="#modalHapus<?= $row["id"] ?>"><i class="bi bi-x-circle"></i></a></td>
+    <a href="#" title="delete" class="badge rounded-pill text-bg-danger" data-bs-toggle="modal" data-bs-target="#modalHapus<?= $row["id"] ?>"><i class="bi bi-x-circle"></i></a>
     <!-- Awal Modal Edit -->
 <div class="modal fade" id="modalEdit<?= $row["id"] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -118,7 +118,7 @@
     </div>
 </div>
 <!-- Akhir Modal Hapus -->
-                            <td>
+                           
                             </td>
                         </tr>
                     <?php
@@ -165,6 +165,4 @@ $total_records = $hasil1->num_rows;
     ?>
     </ul>
 </nav>
-        </div>
-    </div>
-</div>
+
