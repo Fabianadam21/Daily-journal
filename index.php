@@ -103,38 +103,50 @@ include "koneksi.php"
     <!-- article end -->
 
     <!-- gallery begin -->
-    <section id="gallery" class="text-center p-5 bg-secondary-subtle">
-      <div class="container">
-        <h1 class="fw-bold display-4 pb-3">Gallery</h1>
-        <div id="carouselExample" class="carousel slide">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="img/car.jpg" class="d-block w-100" alt="...">
+    <section id="gallery" class="text-center p-4 bg-secondary-subtle">
+    <div class="container">
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+                <?php
+                $sql = "SELECT * FROM gallery ORDER BY tanggal DESC";
+                $hasil = $conn->query($sql);
+                $counter = 0;
+
+                // Generate indicators dynamically
+                while ($row = $hasil->fetch_assoc()) {
+                    echo '<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="' . $counter . '" class="' . ($counter === 0 ? 'active' : '') . '" aria-current="true" aria-label="Slide ' . ($counter + 1) . '"></button>';
+                    $counter++;
+                }
+
+                // Reset pointer for re-looping
+                $hasil->data_seek(0);
+                ?>
             </div>
-            <div class="carousel-item">
-              <img src="img/kijang.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-inner">
+                <?php
+                $counter = 0;
+
+                // Generate slides dynamically
+                while ($row = $hasil->fetch_assoc()) {
+                    echo '<div class="carousel-item ' . ($counter === 0 ? 'active' : '') . '">';
+                    echo '<img src="img/' . $row["gambar"] . '" class="d-block w-100" alt="Slide ' . ($counter + 1) . '">';
+                    echo '</div>';
+                    $counter++;
+                }
+                ?>
             </div>
-            <div class="carousel-item">
-              <img src="img/motor.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="img/pesawat.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="img/samsung.jpg" class="d-block w-100" alt="...">
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-      </div>
-    </section>
+    </div>
+</section>
+
     <!-- gallery end -->
 
     

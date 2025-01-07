@@ -3,7 +3,7 @@
                     <tr>
                         <th>No</th>
                         <th class="w-25">Judul</th>
-                        <th class="w-75">isi</th>
+                        <th class="w-75">Isi</th>
                         <th class="w-25">Gambar</th>
                         <th class="w-25">Aksi</th>
                     </tr>
@@ -34,9 +34,9 @@
                             <td>
                                 <?php
                                 if ($row["gambar"] != '') {
-                                    if (file_exists('image/' . $row["gambar"] . '')) {
+                                    if (file_exists('img/' . $row["gambar"] . '')) {
                                 ?>
-                                        <img src="image/<?= $row["gambar"] ?>" width="100">
+                                        <img src="img/<?= $row["gambar"] ?>" width="100">
                                 <?php
                                     }
                                 }
@@ -61,7 +61,7 @@
                         <input type="text" class="form-control" name="judul" placeholder="Tuliskan Judul Artikel" value="<?= $row["judul"] ?>" required>
                     </div>
                     <div class="mb-3">
-                        <label for="floatingTextarea2">isi</label>
+                        <label for="floatingTextarea2">Isi</label>
                         <textarea class="form-control" placeholder="Tuliskan Isi Artikel" name="isi" required><?= $row["isi"] ?></textarea>
                     </div>
                     <div class="mb-3">
@@ -72,9 +72,9 @@
                         <label for="formGroupExampleInput3" class="form-label">Gambar Lama</label>
                         <?php
                         if ($row["gambar"] != '') {
-                            if (file_exists('image/' . $row["gambar"] . '')) {
+                            if (file_exists('img/' . $row["gambar"] . '')) {
                         ?>
-                                <br><img src="image/<?= $row["gambar"] ?>" width="100">
+                                <br><img src="img/<?= $row["gambar"] ?>" width="100">
                         <?php
                             }
                         }
