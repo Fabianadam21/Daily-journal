@@ -3,7 +3,7 @@
                     <tr>
                         <th>No</th>
                         <th class="w-25">Judul</th>
-                        <th class="w-75">Isi</th>
+                        <th class="w-75">isi</th>
                         <th class="w-25">Gambar</th>
                         <th class="w-25">Aksi</th>
                     </tr>
@@ -11,14 +11,13 @@
                 <tbody>
                     <?php
                     include "koneksi.php";
+
                     $hlm = (isset($_POST['hlm'])) ? $_POST['hlm'] : 1;
-                    $limit = 3;
+                    $limit = 2;
                     $limit_start = ($hlm - 1) * $limit;
                     $no = $limit_start + 1;
 
                     $sql = "SELECT * FROM article ORDER BY tanggal DESC LIMIT $limit_start, $limit";
-                    $hasil = $conn->query($sql);
-                    $sql = "SELECT * FROM article ORDER BY tanggal DESC";
                     $hasil = $conn->query($sql);
 
                     $no = 1;
@@ -35,18 +34,18 @@
                             <td>
                                 <?php
                                 if ($row["gambar"] != '') {
-                                    if (file_exists('img/' . $row["gambar"] . '')) {
+                                    if (file_exists('image/' . $row["gambar"] . '')) {
                                 ?>
-                                        <img src="img/<?= $row["gambar"] ?>" width="100">
+                                        <img src="image/<?= $row["gambar"] ?>" width="100">
                                 <?php
                                     }
                                 }
                                 ?>
                             </td>
-                            <td>            
-    <a href="#" title="edit" class="badge rounded-pill text-bg-success" data-bs-toggle="modal" data-bs-target="#modalEdit<?= $row["id"] ?>"><i class="bi bi-pencil"></i></a>
-    <a href="#" title="delete" class="badge rounded-pill text-bg-danger" data-bs-toggle="modal" data-bs-target="#modalHapus<?= $row["id"] ?>"><i class="bi bi-x-circle"></i></a>
-    <!-- Awal Modal Edit -->
+                            <td>
+                                <a href="#" title="edit" class="badge rounded-pill text-bg-success" data-bs-toggle="modal" data-bs-target="#modalEdit<?= $row["id"] ?>"><i class="bi bi-pencil"></i></a>
+                                <a href="#" title="delete" class="badge rounded-pill text-bg-danger" data-bs-toggle="modal" data-bs-target="#modalHapus<?= $row["id"] ?>"><i class="bi bi-x-circle"></i></a>                       
+                            <!-- Awal Modal Edit -->
 <div class="modal fade" id="modalEdit<?= $row["id"] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -62,7 +61,7 @@
                         <input type="text" class="form-control" name="judul" placeholder="Tuliskan Judul Artikel" value="<?= $row["judul"] ?>" required>
                     </div>
                     <div class="mb-3">
-                        <label for="floatingTextarea2">Isi</label>
+                        <label for="floatingTextarea2">isi</label>
                         <textarea class="form-control" placeholder="Tuliskan Isi Artikel" name="isi" required><?= $row["isi"] ?></textarea>
                     </div>
                     <div class="mb-3">
@@ -73,9 +72,9 @@
                         <label for="formGroupExampleInput3" class="form-label">Gambar Lama</label>
                         <?php
                         if ($row["gambar"] != '') {
-                            if (file_exists('img/' . $row["gambar"] . '')) {
+                            if (file_exists('image/' . $row["gambar"] . '')) {
                         ?>
-                                <br><img src="img/<?= $row["gambar"] ?>" width="100">
+                                <br><img src="image/<?= $row["gambar"] ?>" width="100">
                         <?php
                             }
                         }
@@ -118,7 +117,6 @@
     </div>
 </div>
 <!-- Akhir Modal Hapus -->
-                           
                             </td>
                         </tr>
                     <?php
@@ -126,6 +124,10 @@
                     ?>
                 </tbody>
             </table>
+                </div>
+                </div>
+                </div>
+
             <?php 
 $sql1 = "SELECT * FROM article";
 $hasil1 = $conn->query($sql1); 
@@ -139,7 +141,7 @@ $total_records = $hasil1->num_rows;
         $jumlah_number = 1; //jumlah halaman ke kanan dan kiri dari halaman yang aktif
         $start_number = ($hlm > $jumlah_number)? $hlm - $jumlah_number : 1;
         $end_number = ($hlm < ($jumlah_page - $jumlah_number))? $hlm + $jumlah_number : $jumlah_page;
-                    
+
         if($hlm == 1){
             echo '<li class="page-item disabled"><a class="page-link" href="#">First</a></li>';
             echo '<li class="page-item disabled"><a class="page-link" href="#"><span aria-hidden="true">&laquo;</span></a></li>';
@@ -163,6 +165,5 @@ $total_records = $hasil1->num_rows;
             echo '<li class="page-item halaman" id="'.$jumlah_page.'"><a class="page-link" href="#">Last</a></li>';
         }
     ?>
-    </ul>
+    </ul>
 </nav>
-
