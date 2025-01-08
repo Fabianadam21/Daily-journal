@@ -73,7 +73,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <input type="submit" value="simpan" name="simpan" class="btn btn-primary">
+                    <input type="submit" value="perbarui" name="perbarui" class="btn btn-primary">
                 </div>
             </form>
         </div>

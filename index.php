@@ -197,7 +197,7 @@ include "koneksi.php"
     <!-- schedule end -->
 
     <!-- Aboutme begin -->
-    <section id="about me" class="text-center p-5 bg-danger-subtle text-sm-start">
+    <section id="about me" class="text-center p-5 bg-secondary-subtle text-sm-start">
       <div class="container">
         <div class="d-sm-flex flex-sm-row align-items-center justify-content-center">
           <img src="https://th.bing.com/th?id=OSK.HEROElarvsvpgiVPqg7JTYnZDEI5K2rzL2P8_-NhnTrS-Ok&w=312&h=200&c=15&rs=2&o=6&dpr=1.3&pid=SANGAM" class="rounded-circle" alt="Cinque Terre" width="300">
